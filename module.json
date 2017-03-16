@@ -1,0 +1,12 @@
+{
+    "id": "places",
+    "name": "Places",
+    "description": "Gets the lat and long of a users house based on their address.",
+    "keywords": [
+    ],
+    "version": "0.1",
+    "humhub": {
+        "minVersion": "0.8"
+    },
+    "screenshots": [""]
+}
