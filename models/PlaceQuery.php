@@ -2,14 +2,12 @@
 
 namespace humhub\modules\places\models;
 
-use rezaid\geopoint\ActiveQuery;
-
 /**
  * This is the ActiveQuery class for [[Place]].
  *
  * @see Place
  */
-class PlaceQuery extends ActiveQuery
+class PlaceQuery extends \rezaid\geopoint\ActiveQuery
 {
     /*public function active()
     {
