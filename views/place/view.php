@@ -30,12 +30,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
+            'type_id',
+            'google_place_id',
+            'status_id',
             'module_id',
-            'location',
             'created_by',
-            'category',
-            'lat',
-            'long',
+            'created_at',
+            'updated_at',
         ],
     ]) ?>
 

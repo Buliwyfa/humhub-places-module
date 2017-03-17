@@ -16,8 +16,8 @@ class PlaceSearch extends Place
     public function rules()
     {
         return [
-            [['id', 'created_by'], 'integer'],
-            [['name', 'module_id', 'location'], 'safe'],
+            [['id', 'type_id', 'status_id', 'created_by', 'created_at', 'updated_at'], 'integer'],
+            [['name', 'google_place_id', 'module_id'], 'safe'],
         ];
     }
 
@@ -58,12 +58,16 @@ class PlaceSearch extends Place
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'type_id' => $this->type_id,
+            'status_id' => $this->status_id,
             'created_by' => $this->created_by,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'module_id', $this->module_id])
-            ->andFilterWhere(['like', 'location', $this->location]);
+            ->andFilterWhere(['like', 'google_place_id', $this->google_place_id])
+            ->andFilterWhere(['like', 'module_id', $this->module_id]);
 
         return $dataProvider;
     }

@@ -19,17 +19,19 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name') ?>
 
-    <?= $form->field($model, 'module_id') ?>
+    <?= $form->field($model, 'type_id') ?>
 
-    <?= $form->field($model, 'location') ?>
+    <?= $form->field($model, 'google_place_id') ?>
 
-    <?= $form->field($model, 'created_by') ?>
+    <?= $form->field($model, 'status_id') ?>
 
-    <?php // echo $form->field($model, 'category') ?>
+    <?php // echo $form->field($model, 'module_id') ?>
 
-    <?php // echo $form->field($model, 'lat') ?>
+    <?php // echo $form->field($model, 'created_by') ?>
 
-    <?php // echo $form->field($model, 'long') ?>
+    <?php // echo $form->field($model, 'created_at') ?>
+
+    <?php // echo $form->field($model, 'updated_at') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

@@ -14,17 +14,19 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'module_id')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'type_id')->textInput() ?>
 
-    <?= $form->field($model, 'location')->textInput() ?>
+    <?= $form->field($model, 'google_place_id')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'status_id')->textInput() ?>
+
+    <?= $form->field($model, 'module_id')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'created_by')->textInput() ?>
 
-    <?= $form->field($model, 'category')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'created_at')->textInput() ?>
 
-    <?= $form->field($model, 'lat')->textInput() ?>
-
-    <?= $form->field($model, 'long')->textInput() ?>
+    <?= $form->field($model, 'updated_at')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

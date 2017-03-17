@@ -3,8 +3,13 @@
 namespace humhub\modules\places;
 
 
+use humhub\modules\places\libs\GeoLocation;
 use humhub\modules\places\models\Place;
+use humhub\modules\places\models\PlaceGps;
+use humhub\modules\places\models\PlaceStatus;
+use humhub\modules\places\models\PlaceType;
 use yii\base\Object;
+use yii\db\Expression;
 
 
 class Events extends Object
@@ -13,39 +18,39 @@ class Events extends Object
     public function storeResidence($event)
     {
         $profile = $event->sender;
-        $model = new Place();
-        $model->created_by = $profile->user_id;
+        $newPlace = new Place();
+        $newPlace->created_by = $profile->user_id;
+        $newPlace->name = $profile->lastname;
+        $newPlace->module_id = 'places';
+        $newPlace->type_id = PlaceType::find()->where(['name' => 'user residence'])->one()->id;
+        $newPlace->status_id = PlaceStatus::find()->where(['type_id' => $newPlace->type_id])
+            ->andWhere(['status' => 'active'])->one()->id;
+
+
 
         $address = $profile->street . ' ' . $profile->city . ' ' . $profile->state;
-        // url encode the address
-        $address = urlencode($address);
 
-        // google map geocode api url
-        $url = "http://maps.google.com/maps/api/geocode/json?address={$address}";
+        $location = GeoLocation::getGeocodeFromGoogle($address);
 
-        // get the json response
-        $resp_json = file_get_contents($url);
+        $address = $location->results[0]->formatted_address;
+        $lat = $location->results[0]->geometry->location->lat;
+        $lng = $location->results[0]->geometry->location->lng;
+        $newPlace->google_place_id = $location->results[0]->place_id;
+        $newPlace->validate();
+        $newPlace->errors;
+        $newPlace->save();
 
-        // decode the json
-        $resp = json_decode($resp_json, true);
-
-        // response status will be 'OK', if able to geocode given address
-        if($resp['status']=='OK') {
-
-            // get the important data
-            $model->location = $resp['results'][0]['geometry']['location']['lng']. ',';
-            $model->location .= $resp['results'][0]['geometry']['location']['lat'];
+        $gps = new PlaceGps();
+        $gps->place_id = $newPlace->id;
+        $geoLocation = GeoLocation::fromDegrees($lat,$lng);
+        $gps->gps = new Expression("GeomFromText('Point(".$geoLocation->getLatitudeInDegrees() . " ". $geoLocation->getLongitudeInDegrees().")')");
+        $gps->validate();
+        $gps->errors;
+        $gps->save();
 
 
-        }
 
-        $model->name = 'Residence';
-        $model->module_id = 'places';
-        $model->category = 'User Residence';
-        $model->validate();
-        $model->errors;
 
-        $model->save();
     }
 
 

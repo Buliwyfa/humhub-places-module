@@ -3,11 +3,11 @@
 namespace humhub\modules\places\models;
 
 /**
- * This is the ActiveQuery class for [[Place]].
+ * This is the ActiveQuery class for [[PlaceGps]].
  *
- * @see Place
+ * @see PlaceGps
  */
-class PlaceQuery extends \yii\db\ActiveQuery
+class PlaceGpsQuery extends \yii\db\ActiveQuery
 {
     /*public function active()
     {
@@ -16,7 +16,7 @@ class PlaceQuery extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Place[]|array
+     * @return PlaceGps[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class PlaceQuery extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Place|array|null
+     * @return PlaceGps|array|null
      */
     public function one($db = null)
     {
