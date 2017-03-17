@@ -13,8 +13,9 @@ stored as, and what type of indexing it offeres such as R-tree or B-tree.
 ## Installation
 
 **Under Development**.
+[I'm an inline-style link](https://www.google.com)
 
-This module takes advantage of the yii2 spatial repository. A special thanks to sjaakp for creating the spatial ActiveRecord and Active
+This module takes advantage of the [yii2 spatial repository](https://github.com/sjaakp/yii2-spatial). A special thanks to [sjaakp](https://github.com/sjaakp) for creating the spatial ActiveRecord and Active
 Query classes. Because this module does take advantage of that  repository it is required that you add the repository to your composer.json 
 file. Simply by adding "sjaakp/yii2-spatial": "*" to the file. 
 
