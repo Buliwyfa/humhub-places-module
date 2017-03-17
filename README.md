@@ -26,11 +26,11 @@ This module is still under development but currently it can be installed by addi
 
 To come:
   - Create places that store the place location and information about the place. 
-    ⋅⋅*Other modules will be able to take advantage of the distance and nearest locations. 
+    -Other modules will be able to take advantage of the distance and nearest locations. 
   - List users in a stream by distance from users place. 
-     ⋅⋅* Would like to implement geoLoacation from the users cell. 
+     - Would like to implement geoLoacation from the users cell. 
   - Allow specific users to create venues in which they can keep updated with current information about the venue. 
-    ⋅⋅* Allow slideshow of the venue to be displayed on the venue page. 
+    - Allow slideshow of the venue to be displayed on the venue page. 
   
   - Want to add these option to the Events module I will be creating as well. 
-    ⋅⋅* So specific users can create events to be held in the comunity attached to their place that they have created. 
+    - So specific users can create events to be held in the comunity attached to their place that they have created. 
