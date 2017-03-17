@@ -1,4 +1,4 @@
-#Places - location
+# Places - location
 
 Notice that this module can be used with MySQL >= 5.5, MariaDB >= 5.3.3, and PostgreSQL >= 9.1
 
@@ -10,9 +10,9 @@ I need someone to look up and configure the migration specific for MariaDB and P
 spatial R-Tree data types. I would like to know which version of database and higher. What kind of db table it needs to be 
 stored as, and what type of indexing it offeres such as R-tree or B-tree. 
 
-##Installation
+## Installation
 
-Under Development.
+**Under Development**.
 
 This module takes advantage of the yii2 spatial repository. A special thanks to sjaakp for creating the spatial ActiveRecord and Active
 Query classes. Because this module does take advantage of that  repository it is required that you add the repository to your composer.json 
@@ -26,11 +26,11 @@ This module is still under development but currently it can be installed by addi
 
 To come:
   - Create places that store the place location and information about the place. 
-    -Other modules will be able to take advantage of the distance and nearest locations. 
+    ⋅⋅*Other modules will be able to take advantage of the distance and nearest locations. 
   - List users in a stream by distance from users place. 
-     - Would like to implement geoLoacation from the users cell. 
+     ⋅⋅* Would like to implement geoLoacation from the users cell. 
   - Allow specific users to create venues in which they can keep updated with current information about the venue. 
-    - Allow slideshow of the venue to be displayed on the venue page. 
+    ⋅⋅* Allow slideshow of the venue to be displayed on the venue page. 
   
   - Want to add these option to the Events module I will be creating as well. 
-    - So specific users can create events to be held in the comunity attached to their place that they have created. 
+    ⋅⋅* So specific users can create events to be held in the comunity attached to their place that they have created. 
